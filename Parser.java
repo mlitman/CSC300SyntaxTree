@@ -18,6 +18,20 @@ public class Parser
 		this.parse_stmt();
 	}
 	
+	private String getNextToken(char c)
+	{
+		while(pos < this.theStmt.length())
+		{
+			if(this.theStmt.charAt(pos) == c)
+			{
+				pos++;
+				break;
+			}
+			pos++;
+		}
+		return "" + c;
+	}
+	
 	private String getNextToken(String legalChars)
 	{
 		String token = "";
@@ -47,13 +61,13 @@ public class Parser
 		System.out.println("Read VarName: " + varName);
 		
 		//burn past the =
-		this.getNextToken("=");
+		this.getNextToken('=');
 		
 		// Reading: Math-Expr
 		this.parse_math_expr();
 		
 		//burn past the ;
-		this.getNextToken(";");
+		this.getNextToken(';');
 	}
 	
 	private void parse_math_expr()
@@ -62,9 +76,9 @@ public class Parser
 		if(varName.length() == 0)
 		{
 			//we know that we are at the beginning of a paren-math-expr
-			this.getNextToken("(");
+			this.getNextToken('(');
 			this.parse_math_expr();
-			this.getNextToken(")");
+			this.getNextToken(')');
 		}
 		else
 		{
@@ -76,9 +90,9 @@ public class Parser
 		if(varName.length() == 0)
 		{
 			//we know that we are at the beginning of a paren-math-expr
-			this.getNextToken("(");
+			this.getNextToken('(');
 			this.parse_math_expr();
-			this.getNextToken(")");
+			this.getNextToken(')');
 		}
 		else
 		{
