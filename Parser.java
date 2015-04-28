@@ -62,12 +62,14 @@ public class Parser
 		
 		//burn past the =
 		this.getNextToken('=');
+		System.out.println("Burned =");
 		
 		// Reading: Math-Expr
 		this.parse_math_expr();
 		
 		//burn past the ;
 		this.getNextToken(';');
+		System.out.println("Burned ;");
 	}
 	
 	private void parse_math_expr()
@@ -77,8 +79,10 @@ public class Parser
 		{
 			//we know that we are at the beginning of a paren-math-expr
 			this.getNextToken('(');
+			System.out.println("Burned (");
 			this.parse_math_expr();
 			this.getNextToken(')');
+			System.out.println("Burned )");
 		}
 		else
 		{
