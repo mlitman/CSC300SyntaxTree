@@ -1,5 +1,5 @@
 
-public class OpExpression extends Expression 
+public class OpExpression 
 {
 	private char theOp;
 	

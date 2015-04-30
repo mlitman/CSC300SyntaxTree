@@ -7,4 +7,6 @@ public class VarExpression extends Expression
 	{
 		this.varName = varName;
 	}
+	
+	public 
 }
