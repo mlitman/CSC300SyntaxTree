@@ -2,7 +2,7 @@ public class Driver
 {
 	public static void main(String[] args)
 	{
-		Parser p = new Parser("a=5;     apple =     (a *   7) - 3;");
+		Parser p = new Parser("a=5    ; b = 7;    apple =     (a *   b) + 2;     ");
 		p.parse();
 		VarDefStatement vds = p.getTheSytaxTree();
 		System.out.println(vds);
